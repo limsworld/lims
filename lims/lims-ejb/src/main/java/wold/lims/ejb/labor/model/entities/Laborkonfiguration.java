@@ -9,9 +9,8 @@ import wold.lims.ejb.base.model.base.AbstractEntityBase;
 import wold.lims.ejb.erp.model.entities.Einheitengruppe;
 import wold.lims.ejb.erp.model.entities.Geschaeftsbereich;
 
-
 @Entity
-@Table(name = "LABOREINSTELLUNGEN", schema = "LABOR")
+@Table(name = "LABORKONFIGURATIONå", schema = "LABOR")
 public class Laborkonfiguration extends AbstractEntityBase {
 
 	private static final long serialVersionUID = -4927233143744425049L;

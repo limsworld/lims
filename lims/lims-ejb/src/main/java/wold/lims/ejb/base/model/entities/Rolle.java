@@ -13,9 +13,7 @@ import javax.persistence.UniqueConstraint;
 import wold.lims.ejb.base.model.base.AbstractEntityUniqueNameLang;
 
 @Entity
-@Table(
-	name = "ROLLE",
-	schema = "BASE",
+@Table(name = "ROLLE", schema = "BASE",
 	uniqueConstraints = @UniqueConstraint(columnNames = "NAME"))
 public class Rolle extends AbstractEntityUniqueNameLang {
 

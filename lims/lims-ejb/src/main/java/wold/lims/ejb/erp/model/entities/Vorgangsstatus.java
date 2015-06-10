@@ -9,9 +9,7 @@ import javax.persistence.UniqueConstraint;
 import wold.lims.ejb.base.model.base.AbstractEntityUniqueNameLang;
 
 @Entity
-@Table(
-	name = "VORGANGSSTATUS",
-	schema = "ERP",
+@Table(name = "VORGANGSSTATUS", schema = "ERP",
 	uniqueConstraints = @UniqueConstraint(columnNames = "NAME"))
 @NamedQueries({
 	@NamedQuery(name = "Vorgangsstatus", 

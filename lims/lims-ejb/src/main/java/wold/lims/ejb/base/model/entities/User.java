@@ -21,9 +21,7 @@ import wold.lims.ejb.base.model.base.AbstractEntityUniqueName;
 import wold.lims.ejb.erp.model.entities.Geschaeftsbereich;
 
 @Entity
-@Table(
-	name = "USER", 
-	schema = "BASE", 
+@Table(name = "USER", schema = "BASE", 
 	uniqueConstraints = @UniqueConstraint(columnNames = "NAME"))
 public class User extends AbstractEntityUniqueName {
 

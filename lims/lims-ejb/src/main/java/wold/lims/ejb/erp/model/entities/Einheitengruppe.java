@@ -15,8 +15,7 @@ import javax.persistence.UniqueConstraint;
 import wold.lims.ejb.base.model.base.AbstractEntityUniqueNameLang;
 
 @Entity
-@Table(
-	name = "EINHEITENGRUPPE", schema = "ERP",
+@Table(name = "EINHEITENGRUPPE", schema = "ERP",
 	uniqueConstraints = @UniqueConstraint(columnNames = "NAME"))
 @NamedQueries({
 	@NamedQuery(name = "Einheitengruppe", 

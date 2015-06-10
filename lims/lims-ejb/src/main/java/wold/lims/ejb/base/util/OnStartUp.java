@@ -40,8 +40,6 @@ public class OnStartUp {
 
 		stammdaten();
 
-		//testdaten();
-		
 		geschaeftsbereichFassade.createGeschaeftsbereich(new GeschaeftsbereichCreate()
 			.setName("LABTECHNOLOGIE AG")
 			.setFirma("Labtechnologie AG")
