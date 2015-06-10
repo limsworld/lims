@@ -1,0 +1,17 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<h:form>
+			<h:panelGrid columns="2" cellpadding="5">
+				<p:outputLabel for="suchfeld" value="Suche" />
+				<p:inputText id="suchfeld" value="#{partnerController.suchfeld}" />
+				<p:outputLabel />
+				<p:commandButton value="Suchen" action="#{partnerController.adresseSuchen()}" />
+			</h:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>
