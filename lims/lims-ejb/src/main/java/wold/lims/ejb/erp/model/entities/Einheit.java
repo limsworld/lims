@@ -22,11 +22,11 @@ public class Einheit extends AbstractEntityUniqueNameLang {
 	private static final long serialVersionUID = -609510796524799057L;
 
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "EINHEIT_EINHEITSGRUPPE", schema = "erp", joinColumns = { 
+	@JoinTable(name = "EINHEIT_EINHEITENGRUPPE", schema = "erp", joinColumns = { 
 			@JoinColumn(name = "EINHEIT_ID", nullable = false, updatable = false) }, 
-			inverseJoinColumns = { @JoinColumn(name = "EINHEITSGRUPPE_ID", 
+			inverseJoinColumns = { @JoinColumn(name = "EINHEITENGRUPPE_ID", 
 					nullable = false, updatable = false) })
-	protected List<Einheitsgruppe> einheitsgruppen = new ArrayList<Einheitsgruppe>();
+	protected List<Einheitengruppe> einheitengruppen = new ArrayList<Einheitengruppe>();
 
 	public Einheit setName(String name) {
 		this.name = name;
@@ -38,17 +38,16 @@ public class Einheit extends AbstractEntityUniqueNameLang {
 		return this;
 	}
 
-	public List<Einheitsgruppe> getEinheitsgruppen() {
-		return einheitsgruppen;
+	public List<Einheitengruppe> getEinheitengruppen() {
+		return einheitengruppen;
 	}
 
-	public Einheit setEinheitsgruppen(List<Einheitsgruppe> einheitsgruppen) {
-		this.einheitsgruppen = einheitsgruppen;
-		return this;
+	public void setEinheitengruppen(List<Einheitengruppe> einheitengruppen) {
+		this.einheitengruppen = einheitengruppen;
 	}
 
-	public Einheit addEinheitsgruppe(Einheitsgruppe einheitsgruppe) {
-		einheitsgruppen.add(einheitsgruppe);
+	public Einheit addEinheitengruppe(Einheitengruppe einheitengruppe) {
+		einheitengruppen.add(einheitengruppe);
 		return this;
 	}
 

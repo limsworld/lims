@@ -5,6 +5,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import wold.lims.ejb.erp.model.constante.PartnerbeziehungstypEnum;
+import wold.lims.ejb.erp.model.entities.Einheit;
+import wold.lims.ejb.erp.model.entities.Einheitengruppe;
 import wold.lims.ejb.erp.model.entities.Geschlecht;
 import wold.lims.ejb.erp.model.entities.Partnerbeziehungstyp;
 import wold.lims.ejb.erp.model.entities.Vorgangsstatus;
@@ -42,6 +44,18 @@ public class ErpStammdatenFassade {
 		return em.createNamedQuery(Vorgangstyp.class
 			.getSimpleName(), Vorgangstyp.class)
 			.setParameter("name", vorgangstyp).getSingleResult();
+	}
+
+	public Einheit getEinheit(String einheit) {
+		return em.createNamedQuery(Einheit.class
+			.getSimpleName(), Einheit.class)
+			.setParameter("name", einheit).getSingleResult();
+	}
+
+	public Einheitengruppe getEinheitengruppe(String einheit) {
+		return em.createNamedQuery(Einheitengruppe.class
+			.getSimpleName(), Einheitengruppe.class)
+			.setParameter("name", einheit).getSingleResult();
 	}
 
 }

@@ -7,6 +7,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -14,24 +16,25 @@ import wold.lims.ejb.base.model.base.AbstractEntityUniqueNameLang;
 
 @Entity
 @Table(
-	name = "EINHEITSGRUPPE", schema = "ERP",
+	name = "EINHEITENGRUPPE", schema = "ERP",
 	uniqueConstraints = @UniqueConstraint(columnNames = "NAME"))
-public class Einheitsgruppe extends AbstractEntityUniqueNameLang {
+@NamedQueries({
+	@NamedQuery(name = "Einheitengruppe", 
+		query = "SELECT e FROM Einheitengruppe e WHERE e.name = :name") })
+public class Einheitengruppe extends AbstractEntityUniqueNameLang {
 
 	private static final long serialVersionUID = -609510796524799057L;
 
-	@ManyToMany(
-		fetch = FetchType.LAZY, 
-		cascade = CascadeType.ALL, 
-		mappedBy = "einheitsgruppen")
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, 
+		mappedBy = "einheitengruppen")
 	protected List<Einheit> einheiten = new ArrayList<Einheit>();
 
-	public Einheitsgruppe setName(String name) {
+	public Einheitengruppe setName(String name) {
 		this.name = name;
 		return this;
 	}
 
-	public Einheitsgruppe setBezeichnung(String bezeichnung) {
+	public Einheitengruppe setBezeichnung(String bezeichnung) {
 		this.bezeichnung = bezeichnung;
 		return this;
 	}
@@ -40,7 +43,7 @@ public class Einheitsgruppe extends AbstractEntityUniqueNameLang {
 		return einheiten;
 	}
 
-	public Einheitsgruppe setEinheiten(List<Einheit> einheiten) {
+	public Einheitengruppe setEinheiten(List<Einheit> einheiten) {
 		this.einheiten = einheiten;
 		return this;
 	}

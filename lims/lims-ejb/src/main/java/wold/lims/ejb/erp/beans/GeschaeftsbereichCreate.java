@@ -30,6 +30,8 @@ public class GeschaeftsbereichCreate {
 	protected String fax;
 
 	protected String webseite;
+	
+	protected boolean labor;
 
 	public String getFirma() {
 		return firma;
@@ -154,6 +156,15 @@ public class GeschaeftsbereichCreate {
 
 	public GeschaeftsbereichCreate setGeschlecht(String geschlecht) {
 		this.geschlecht = geschlecht;
+		return this;
+	}
+
+	public boolean isLabor() {
+		return labor;
+	}
+
+	public GeschaeftsbereichCreate setLabor(boolean labor) {
+		this.labor = labor;
 		return this;
 	}
 	

@@ -12,10 +12,14 @@ import javax.persistence.PersistenceContext;
 
 import wold.lims.ejb.erp.beans.GeschaeftsbereichCreate;
 import wold.lims.ejb.erp.fassade.GeschaeftsbereichFassade;
+import wold.lims.ejb.erp.model.constante.EinheitEnum;
+import wold.lims.ejb.erp.model.constante.EinheitengruppeEnum;
 import wold.lims.ejb.erp.model.constante.GeschlechtEnum;
 import wold.lims.ejb.erp.model.constante.PartnerbeziehungstypEnum;
 import wold.lims.ejb.erp.model.constante.VorgangsstatusEnum;
 import wold.lims.ejb.erp.model.constante.VorgangstypEnum;
+import wold.lims.ejb.erp.model.entities.Einheit;
+import wold.lims.ejb.erp.model.entities.Einheitengruppe;
 import wold.lims.ejb.erp.model.entities.Geschlecht;
 import wold.lims.ejb.erp.model.entities.Partnerbeziehungstyp;
 import wold.lims.ejb.erp.model.entities.Vorgangsstatus;
@@ -50,9 +54,10 @@ public class OnStartUp {
 			.setTelefon("+41 43 387 99 98")
 			.setFax("+41 43 387 99 98")
 			.setWebseite("labtechnologiesag.ch/zuerich")
+			.setLabor(true)
 		);
-
-
+		
+		
 //		Domain systemDomain = new Domain()
 //			.setSystem(true)
 //			.setName(DomainConstant.INFORMATIK.name())
@@ -236,7 +241,7 @@ public class OnStartUp {
 //		
 //		
 //		
-//		Einheitsgruppe laboreinheiten = new Einheitsgruppe()
+//		Einheitengruppe laboreinheiten = new Einheitengruppe()
 //			.setName("LABOREINHEITEN")
 //			.setBezeichnung("de=Laboreinheiten");
 //		em.persist(laboreinheiten);
@@ -244,11 +249,11 @@ public class OnStartUp {
 //		Einheit einheit = new Einheit()
 //			.setName("mg/kg")
 //			.setBezeichnung("de=mg/kg")
-//			.addEinheitsgruppe(laboreinheiten);
+//			.addEinheitengruppe(laboreinheiten);
 //		em.persist(einheit);
 //
 //		Laboreinstellungen laboreinstellungen = new Laboreinstellungen()
-//			.setEinheitsgruppe(laboreinheiten);
+//			.setEinheitengruppe(laboreinheiten);
 //		em.persist(laboreinstellungen);
 //
 //		Norm norm = new Norm()
@@ -531,7 +536,30 @@ public class OnStartUp {
 		Vorgangstyp vorgangstypAusgangsrechnung = new Vorgangstyp()
 			.setName(VorgangstypEnum.AUSGANGSRECHNUNG.name())
 			.setBezeichnung("de=Ausgangsrechnung|en=outgoing invoice");
-		em.persist(vorgangstypAusgangsrechnung);		
+		em.persist(vorgangstypAusgangsrechnung);
+
+		Einheitengruppe einheitengruppeErp = new Einheitengruppe()
+			.setName(EinheitengruppeEnum.ERP.name())
+			.setBezeichnung("de=Einheiten ERP|en=Units ERP");
+		em.persist(einheitengruppeErp);
+
+		Einheitengruppe einheitengruppeLabor = new Einheitengruppe()
+			.setName(EinheitengruppeEnum.LABOR.name())
+			.setBezeichnung("de=Einheiten Labor|en=Units Labor");
+		em.persist(einheitengruppeLabor);
+
+
+		Einheit einheitAnzahl = new Einheit()
+			.addEinheitengruppe(einheitengruppeErp)
+			.setName(EinheitEnum.ANZAHL.name())
+			.setBezeichnung("de=Einheit|en=unit");
+		em.persist(einheitAnzahl);
+
+		Einheit einheitMgLiter = new Einheit()
+			.addEinheitengruppe(einheitengruppeLabor)
+			.setName("MG_LITER")
+			.setBezeichnung("de=ml/l|en=ml/l");
+		em.persist(einheitMgLiter);
 
 	}
 
