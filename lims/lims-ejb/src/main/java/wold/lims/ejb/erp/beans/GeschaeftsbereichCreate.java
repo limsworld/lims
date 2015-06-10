@@ -3,7 +3,11 @@ package wold.lims.ejb.erp.beans;
 
 public class GeschaeftsbereichCreate {
 
+	protected String name;
+	
 	protected String firma;
+	
+	protected String zusatz;
 
 	protected String strasse;
 
@@ -32,6 +36,15 @@ public class GeschaeftsbereichCreate {
 	protected String webseite;
 	
 	protected boolean labor;
+
+	public String getName() {
+		return name;
+	}
+
+	public GeschaeftsbereichCreate setName(String name) {
+		this.name = name;
+		return this;
+	}
 
 	public String getFirma() {
 		return firma;
@@ -167,6 +180,14 @@ public class GeschaeftsbereichCreate {
 		this.labor = labor;
 		return this;
 	}
-	
+
+	public String getZusatz() {
+		return zusatz;
+	}
+
+	public GeschaeftsbereichCreate setZusatz(String zusatz) {
+		this.zusatz = zusatz;
+		return this;
+	}
 	
 }

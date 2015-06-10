@@ -6,8 +6,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import wold.lims.ejb.base.model.base.AbstractEntityBase;
-import wold.lims.ejb.base.model.entities.Geschaeftsbereich;
 import wold.lims.ejb.erp.model.entities.Einheitengruppe;
+import wold.lims.ejb.erp.model.entities.Geschaeftsbereich;
 
 
 @Entity

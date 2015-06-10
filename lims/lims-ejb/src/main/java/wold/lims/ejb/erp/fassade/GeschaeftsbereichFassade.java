@@ -8,15 +8,14 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import wold.lims.ejb.base.model.entities.Geschaeftsbereich;
 import wold.lims.ejb.erp.beans.GeschaeftsbereichCreate;
 import wold.lims.ejb.erp.model.constante.EinheitengruppeEnum;
 import wold.lims.ejb.erp.model.constante.PartnerbeziehungstypEnum;
 import wold.lims.ejb.erp.model.entities.Adresse;
+import wold.lims.ejb.erp.model.entities.Geschaeftsbereich;
 import wold.lims.ejb.erp.model.entities.Kontakt;
 import wold.lims.ejb.erp.model.entities.Partner;
 import wold.lims.ejb.erp.model.entities.Partnerbeziehung;
-import wold.lims.ejb.erp.model.entities.Partnergeschaeftsbereich;
 import wold.lims.ejb.erp.model.entities.Person;
 import wold.lims.ejb.labor.model.entities.Laborkonfiguration;
 
@@ -29,17 +28,42 @@ public class GeschaeftsbereichFassade {
 	@Inject
 	ErpStammdatenFassade stammdaten;
 	
-	public void createGeschaeftsbereich(GeschaeftsbereichCreate geschaeftsbereichCreate)
-		throws ParseException {
+	public Geschaeftsbereich geschaeftsbereichHinzufuegen(String name, String bereichsname, Geschaeftsbereich geschaeftsbereichUeber) {
 
 		Geschaeftsbereich geschaeftsbereich = new Geschaeftsbereich()
-			.setName(geschaeftsbereichCreate.getFirma())
-			.setBezeichnung(geschaeftsbereichCreate.getFirma());
+			.setGeschaeftsbereich(geschaeftsbereichUeber)
+			.setName(name)
+			.setBezeichnung(bereichsname);
 		em.persist(geschaeftsbereich);
+
+		
+		
+//		Adresse adresse = new Adresse()
+//		.setPartner(partner)
+//		.setFirma(geschaeftsbereichCreate.getFirma())
+//		.setStrasse(geschaeftsbereichCreate.getStrasse())
+//		.setPlz(geschaeftsbereichCreate.getPlz())
+//		.setOrt(geschaeftsbereichCreate.getOrt());
+//	em.persist(adresse);
+
+		
+		
+		return null;
+	}
+	
+	
+	public Geschaeftsbereich createGeschaeftsbereich(GeschaeftsbereichCreate geschaeftsbereichCreate)
+		throws ParseException {
 
 		Partner partner = new Partner();
 		em.persist(partner);
 
+		Geschaeftsbereich geschaeftsbereich = new Geschaeftsbereich()
+			.setPartner(partner)
+			.setName(geschaeftsbereichCreate.getName())
+			.setBezeichnung(geschaeftsbereichCreate.getFirma());
+		em.persist(geschaeftsbereich);
+		
 		Adresse adresse = new Adresse()
 			.setPartner(partner)
 			.setFirma(geschaeftsbereichCreate.getFirma())
@@ -63,11 +87,6 @@ public class GeschaeftsbereichFassade {
 			.setFunktion(geschaeftsbereichCreate.getFunktion());
 		em.persist(kontakt);
 
-		Partnergeschaeftsbereich partnerdivision = new Partnergeschaeftsbereich()
-			.setGeschaeftsbereich(geschaeftsbereich)
-			.setPartner(partner);
-		em.persist(partnerdivision);
-
 		Partnerbeziehung partnerbeziehung = new Partnerbeziehung()
 			.setPartner(partner).setPartner2(partner)
 			.setPartnerbeziehungstyp(
@@ -81,6 +100,8 @@ public class GeschaeftsbereichFassade {
 				.setEinheitengruppe(stammdaten.getEinheitengruppe(EinheitengruppeEnum.LABOR.name()));
 			em.persist(laborkonfiguration);
 		}
+
+		return geschaeftsbereich;
 
 	}
 

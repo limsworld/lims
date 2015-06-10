@@ -12,7 +12,6 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 import wold.lims.ejb.base.model.base.AbstractEntityUniqueName;
-import wold.lims.ejb.base.model.entities.Geschaeftsbereich;
 
 @Entity
 @Table(name = "KONTAKT", schema = "ERP",

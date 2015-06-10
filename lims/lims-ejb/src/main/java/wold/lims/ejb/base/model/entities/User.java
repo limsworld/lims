@@ -18,6 +18,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.Type;
 
 import wold.lims.ejb.base.model.base.AbstractEntityUniqueName;
+import wold.lims.ejb.erp.model.entities.Geschaeftsbereich;
 
 @Entity
 @Table(

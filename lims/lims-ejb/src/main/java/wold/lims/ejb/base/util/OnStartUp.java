@@ -34,13 +34,16 @@ public class OnStartUp {
 
 	@Inject
 	private GeschaeftsbereichFassade geschaeftsbereichFassade;
-	
+
 	@PostConstruct
 	private void postConstruct() throws ParseException {
-		
+
 		stammdaten();
 
+		//testdaten();
+		
 		geschaeftsbereichFassade.createGeschaeftsbereich(new GeschaeftsbereichCreate()
+			.setName("LABTECHNOLOGIE AG")
 			.setFirma("Labtechnologie AG")
 			.setStrasse("Zürcherstr. 555")
 			.setPlz("8003")
@@ -56,8 +59,8 @@ public class OnStartUp {
 			.setWebseite("labtechnologiesag.ch/zuerich")
 			.setLabor(true)
 		);
-		
-		
+
+
 //		Domain systemDomain = new Domain()
 //			.setSystem(true)
 //			.setName(DomainConstant.INFORMATIK.name())
@@ -439,6 +442,8 @@ public class OnStartUp {
 //		em.persist(muellerContakt2);
 
 	}
+
+
 
 	private void stammdaten() {
 
