@@ -1,0 +1,13 @@
+package wold.lims.ejb.erp.model.constante;
+
+public enum VorgangstypEnum {
+
+	KUNDENBESTELLUNG,
+	KUNDENOFFERTE,
+	EINGANGSLIEFERSCHEIN,
+	EINGANGSBESTELLUNG,
+	PRODUKTION,
+	AUSGANGSLIEFERSCHEIN,
+	AUSGANGSRECHNUNG
+
+}

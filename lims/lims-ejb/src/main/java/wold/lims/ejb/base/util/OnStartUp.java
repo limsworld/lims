@@ -14,8 +14,12 @@ import wold.lims.ejb.erp.beans.GeschaeftsbereichCreate;
 import wold.lims.ejb.erp.fassade.GeschaeftsbereichFassade;
 import wold.lims.ejb.erp.model.constante.GeschlechtEnum;
 import wold.lims.ejb.erp.model.constante.PartnerbeziehungstypEnum;
+import wold.lims.ejb.erp.model.constante.VorgangsstatusEnum;
+import wold.lims.ejb.erp.model.constante.VorgangstypEnum;
 import wold.lims.ejb.erp.model.entities.Geschlecht;
 import wold.lims.ejb.erp.model.entities.Partnerbeziehungstyp;
+import wold.lims.ejb.erp.model.entities.Vorgangsstatus;
+import wold.lims.ejb.erp.model.entities.Vorgangstyp;
 
 @Singleton
 @Startup
@@ -451,6 +455,7 @@ public class OnStartUp {
 			.setSystem(true);
 		em.persist(beziehungLieferant);
 
+
 		Geschlecht mann = new Geschlecht()
 			.setName(GeschlechtEnum.MANN.name())
 			.setBezeichnung("de=Herr|en=Mr");
@@ -460,6 +465,73 @@ public class OnStartUp {
 			.setName(GeschlechtEnum.FRAU.name())
 			.setBezeichnung("de=Frau|en=Mrs");
 		em.persist(frau);
+
+
+		Vorgangsstatus vorgangsstatusErfassen = new Vorgangsstatus()
+			.setName(VorgangsstatusEnum.ERFASSEN.name())
+			.setBezeichnung("de=erfassen|en=to record");
+		em.persist(vorgangsstatusErfassen);
+
+		Vorgangsstatus vorgangsstatusErfasst = new Vorgangsstatus()
+			.setName(VorgangsstatusEnum.ERFASST.name())
+			.setBezeichnung("de=erfasst|en=record");
+		em.persist(vorgangsstatusErfasst);
+
+		Vorgangsstatus vorgangsstatusInarbeit = new Vorgangsstatus()
+			.setName(VorgangsstatusEnum.INARBEIT.name())
+			.setBezeichnung("de=in Arbeit|en=progress");
+		em.persist(vorgangsstatusInarbeit);
+
+		Vorgangsstatus vorgangsstatusVerrechnen = new Vorgangsstatus()
+			.setName(VorgangsstatusEnum.VERRECHNEN.name())
+			.setBezeichnung("de=in Arbeit|en=to charge");
+		em.persist(vorgangsstatusVerrechnen);
+
+		Vorgangsstatus vorgangsstatusVerrechnet = new Vorgangsstatus()
+			.setName(VorgangsstatusEnum.VERRECHNET.name())
+			.setBezeichnung("de=verrechnet|en=cleared");
+		em.persist(vorgangsstatusVerrechnet);
+
+		Vorgangsstatus vorgangsstatusBeendet = new Vorgangsstatus()
+			.setName(VorgangsstatusEnum.BEENDET.name())
+			.setBezeichnung("de=beendet|en=completed");
+		em.persist(vorgangsstatusBeendet);
+
+
+		Vorgangstyp vorgangstypKundenbestellung = new Vorgangstyp()
+			.setName(VorgangstypEnum.KUNDENBESTELLUNG.name())
+			.setBezeichnung("de=Kundenbestellung|en=customer order");
+		em.persist(vorgangstypKundenbestellung);
+
+		Vorgangstyp vorgangstypKundenofferte = new Vorgangstyp()
+			.setName(VorgangstypEnum.KUNDENOFFERTE.name())
+			.setBezeichnung("de=Kundenofferte|en=customer offer");
+		em.persist(vorgangstypKundenofferte);
+
+		Vorgangstyp vorgangstypEingangslieferschein = new Vorgangstyp()
+			.setName(VorgangstypEnum.EINGANGSLIEFERSCHEIN.name())
+			.setBezeichnung("de=Eingangslieferschein|en=incoming invoice");
+		em.persist(vorgangstypEingangslieferschein);
+
+		Vorgangstyp vorgangstypEingangsbestellung = new Vorgangstyp()
+			.setName(VorgangstypEnum.EINGANGSBESTELLUNG.name())
+			.setBezeichnung("de=Eingangsbestellung|en=incoming order");
+		em.persist(vorgangstypEingangsbestellung);
+
+		Vorgangstyp vorgangstypProduktion = new Vorgangstyp()
+			.setName(VorgangstypEnum.PRODUKTION.name())
+			.setBezeichnung("de=Produktion|en=production");
+		em.persist(vorgangstypProduktion);
+
+		Vorgangstyp vorgangstypAusgangslieferschein = new Vorgangstyp()
+			.setName(VorgangstypEnum.AUSGANGSLIEFERSCHEIN.name())
+			.setBezeichnung("de=Ausgangslieferschein|en=outgoing delivery");
+		em.persist(vorgangstypAusgangslieferschein);
+
+		Vorgangstyp vorgangstypAusgangsrechnung = new Vorgangstyp()
+			.setName(VorgangstypEnum.AUSGANGSRECHNUNG.name())
+			.setBezeichnung("de=Ausgangsrechnung|en=outgoing invoice");
+		em.persist(vorgangstypAusgangsrechnung);		
 
 	}
 
