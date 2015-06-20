@@ -21,9 +21,9 @@ import wold.lims.ejb.base.model.base.AbstractEntityUniqueName;
 import wold.lims.ejb.erp.model.entities.Geschaeftsbereich;
 
 @Entity
-@Table(name = "USER", schema = "BASE", 
+@Table(name = "SYSTEM_USER", schema = "BASE", 
 	uniqueConstraints = @UniqueConstraint(columnNames = "NAME"))
-public class User extends AbstractEntityUniqueName {
+public class SystemUser extends AbstractEntityUniqueName {
 
 	private static final long serialVersionUID = 1063439603938512155L;
 
@@ -45,7 +45,7 @@ public class User extends AbstractEntityUniqueName {
 
 	@ManyToOne
 	@JoinColumn(name = "ROLLE_ID")	
-	protected Rolle rolle;
+	protected SystemRolle rolle;
 
 	@ManyToOne
 	@JoinColumn(name = "GESCHAEFTSEINHEIT_ID")	
@@ -56,7 +56,7 @@ public class User extends AbstractEntityUniqueName {
 			@JoinColumn(name = "USER_ID", nullable = false, updatable = false) }, 
 			inverseJoinColumns = { @JoinColumn(name = "ROLLE_ID", 
 					nullable = false, updatable = false) })
-	protected List<Rolle> rollen = new ArrayList<Rolle>();
+	protected List<SystemRolle> rollen = new ArrayList<SystemRolle>();
 
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "USER_GESCHAEFTSEINHEIT", schema = "erp", joinColumns = { 
@@ -65,12 +65,12 @@ public class User extends AbstractEntityUniqueName {
 					nullable = false, updatable = false) })
 	protected List<Geschaeftsbereich> geschaeftseinheiten = new ArrayList<Geschaeftsbereich>();
 
-	public User setSystem(boolean system) {
+	public SystemUser setSystem(boolean system) {
 		this.system = system;
 		return this;
 	}
 
-	public User setName(String name) {
+	public SystemUser setName(String name) {
 		this.name = name;
 		return this;
 	}
@@ -79,7 +79,7 @@ public class User extends AbstractEntityUniqueName {
 		return passwort;
 	}
 
-	public User setPasswort(String passwort) {
+	public SystemUser setPasswort(String passwort) {
 		this.passwort = passwort;
 		return this;
 	}
@@ -88,7 +88,7 @@ public class User extends AbstractEntityUniqueName {
 		return email;
 	}
 
-	public User setEmail(String email) {
+	public SystemUser setEmail(String email) {
 		this.email = email;
 		return this;
 	}
@@ -97,21 +97,21 @@ public class User extends AbstractEntityUniqueName {
 		return aktiviert;
 	}
 
-	public User setAktiviert(boolean aktiviert) {
+	public SystemUser setAktiviert(boolean aktiviert) {
 		this.aktiviert = aktiviert;
 		return this;
 	}
 
-	public List<Rolle> getRollen() {
+	public List<SystemRolle> getRollen() {
 		return rollen;
 	}
 
-	public User setRollen(List<Rolle> rollen) {
+	public SystemUser setRollen(List<SystemRolle> rollen) {
 		this.rollen = rollen;
 		return this;
 	}
 
-	public User addRolle(Rolle rolle) {
+	public SystemUser addRolle(SystemRolle rolle) {
 		rollen.add(rolle);
 		return this;
 	}
@@ -120,12 +120,12 @@ public class User extends AbstractEntityUniqueName {
 		return geschaeftseinheiten;
 	}
 
-	public User setGeschaeftseinheiten(List<Geschaeftsbereich> geschaeftseinheiten) {
+	public SystemUser setGeschaeftseinheiten(List<Geschaeftsbereich> geschaeftseinheiten) {
 		this.geschaeftseinheiten = geschaeftseinheiten;
 		return this;
 	}
 
-	public User addGeschaeftseinheit(Geschaeftsbereich geschaeftseinheit) {
+	public SystemUser addGeschaeftseinheit(Geschaeftsbereich geschaeftseinheit) {
 		geschaeftseinheiten.add(geschaeftseinheit);
 		return this;
 	}
@@ -134,16 +134,16 @@ public class User extends AbstractEntityUniqueName {
 		return aktivierungscode;
 	}
 
-	public User setAktivierungscode(String aktivierungscode) {
+	public SystemUser setAktivierungscode(String aktivierungscode) {
 		this.aktivierungscode = aktivierungscode;
 		return this;
 	}
 
-	public Rolle getRolle() {
+	public SystemRolle getRolle() {
 		return rolle;
 	}
 
-	public User setRolle(Rolle rolle) {
+	public SystemUser setRolle(SystemRolle rolle) {
 		this.rolle = rolle;
 		return this;
 	}
@@ -152,7 +152,7 @@ public class User extends AbstractEntityUniqueName {
 		return geschaeftseinheit;
 	}
 
-	public User setGeschaeftseinheit(Geschaeftsbereich geschaeftseinheit) {
+	public SystemUser setGeschaeftseinheit(Geschaeftsbereich geschaeftseinheit) {
 		this.geschaeftseinheit = geschaeftseinheit;
 		return this;
 	}

@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import wold.lims.ejb.base.model.base.AbstractEntityUser;
-import wold.lims.ejb.base.model.entities.User;
+import wold.lims.ejb.base.model.entities.SystemUser;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -44,7 +44,7 @@ public class Position extends AbstractEntityUser {
 	@Column(name = "PREIS")
 	protected double preis;
 
-	public Position setUser(User user) {
+	public Position setUser(SystemUser user) {
 		this.user = user;
 		return this;
 	}

@@ -20,7 +20,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.Type;
 
 import wold.lims.ejb.base.model.base.AbstractEntityUniqueName;
-import wold.lims.ejb.base.model.entities.User;
+import wold.lims.ejb.base.model.entities.SystemUser;
 
 @Entity
 @Table(name = "PERSON", schema = "ERP",
@@ -35,7 +35,7 @@ public class Person extends AbstractEntityUniqueName {
 
 	@ManyToOne
 	@JoinColumn(name = "USER_ID")	
-	protected User user;
+	protected SystemUser user;
 
 	@OneToMany(mappedBy = "person")
 	protected List<Kontakt> kontakte = new ArrayList<Kontakt>();
@@ -166,11 +166,11 @@ public class Person extends AbstractEntityUniqueName {
 		return this;
 	}
 
-	public User getUser() {
+	public SystemUser getUser() {
 		return user;
 	}
 
-	public Person setUser(User user) {
+	public Person setUser(SystemUser user) {
 		this.user = user;
 		return this;
 	}

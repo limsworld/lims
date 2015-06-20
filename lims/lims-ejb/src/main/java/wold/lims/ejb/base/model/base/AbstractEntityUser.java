@@ -5,7 +5,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotNull;
 
-import wold.lims.ejb.base.model.entities.User;
+import wold.lims.ejb.base.model.entities.SystemUser;
 
 @MappedSuperclass
 public abstract class AbstractEntityUser extends AbstractEntityBase {
@@ -15,14 +15,14 @@ public abstract class AbstractEntityUser extends AbstractEntityBase {
 	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "USER_ID")	
-	protected User user;
+	protected SystemUser user;
 
 
-	public User getUser() {
+	public SystemUser getUser() {
 		return user;
 	}
 
-	public AbstractEntityBase setUser(User user) {
+	public AbstractEntityBase setUser(SystemUser user) {
 		this.user = user;
 		return this;
 	}

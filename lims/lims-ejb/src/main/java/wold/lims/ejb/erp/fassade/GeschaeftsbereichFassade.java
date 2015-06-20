@@ -9,7 +9,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import wold.lims.ejb.erp.beans.GeschaeftsbereichCreate;
-import wold.lims.ejb.erp.model.constante.EinheitengruppeEnum;
 import wold.lims.ejb.erp.model.constante.PartnerbeziehungstypEnum;
 import wold.lims.ejb.erp.model.entities.Adresse;
 import wold.lims.ejb.erp.model.entities.Geschaeftsbereich;
@@ -17,7 +16,6 @@ import wold.lims.ejb.erp.model.entities.Kontakt;
 import wold.lims.ejb.erp.model.entities.Partner;
 import wold.lims.ejb.erp.model.entities.Partnerbeziehung;
 import wold.lims.ejb.erp.model.entities.Person;
-import wold.lims.ejb.labor.model.entities.Laborkonfiguration;
 
 @Stateless
 public class GeschaeftsbereichFassade {
@@ -94,12 +92,12 @@ public class GeschaeftsbereichFassade {
 					PartnerbeziehungstypEnum.GESCHAEFTSBEREICH));
 		em.persist(partnerbeziehung);
 
-		if (geschaeftsbereichCreate.isLabor()) {
-			Laborkonfiguration laborkonfiguration = new Laborkonfiguration()
-				.setGeschaeftsbereich(geschaeftsbereich)
-				.setEinheitengruppe(stammdaten.getEinheitengruppe(EinheitengruppeEnum.LABOR.name()));
-			em.persist(laborkonfiguration);
-		}
+//		if (geschaeftsbereichCreate.isLabor()) {
+//			Laborkonfiguration laborkonfiguration = new Laborkonfiguration()
+//				.setGeschaeftsbereich(geschaeftsbereich)
+//				.setEinheitengruppe(stammdaten.getEinheitengruppe(EinheitengruppeEnum.LABOR.name()));
+//			em.persist(laborkonfiguration);
+//		}
 
 		return geschaeftsbereich;
 

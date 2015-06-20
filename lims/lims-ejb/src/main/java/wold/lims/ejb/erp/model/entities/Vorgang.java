@@ -6,7 +6,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import wold.lims.ejb.base.model.base.AbstractEntityUser;
-import wold.lims.ejb.base.model.entities.User;
+import wold.lims.ejb.base.model.entities.SystemUser;
 
 @Entity
 @Table(name = "VORGANG", schema = "ERP")
@@ -22,7 +22,7 @@ public class Vorgang extends AbstractEntityUser {
 	@JoinColumn(name = "VORGANGSSTATUS_ID")	
 	protected Vorgangsstatus vorgangsstatus;
 
-	public Vorgang setUser(User user) {
+	public Vorgang setUser(SystemUser user) {
 		this.user = user;
 		return this;
 	}

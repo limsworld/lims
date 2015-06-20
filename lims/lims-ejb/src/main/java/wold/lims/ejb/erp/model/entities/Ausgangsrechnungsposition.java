@@ -6,7 +6,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import wold.lims.ejb.base.model.entities.User;
+import wold.lims.ejb.base.model.entities.SystemUser;
 
 @Entity
 @DiscriminatorValue("AUSGANGSRECHNUNGSPOSITION")
@@ -24,7 +24,7 @@ public class Ausgangsrechnungsposition extends Position {
 		return this;
 	}
 
-	public Ausgangsrechnungsposition setUser(User user) {
+	public Ausgangsrechnungsposition setUser(SystemUser user) {
 		this.user = user;
 		return this;
 	}

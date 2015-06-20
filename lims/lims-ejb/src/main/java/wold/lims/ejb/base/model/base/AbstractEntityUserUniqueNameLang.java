@@ -5,7 +5,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 
-import wold.lims.ejb.base.model.entities.User;
+import wold.lims.ejb.base.model.entities.SystemUser;
 
 @MappedSuperclass
 public abstract class AbstractEntityUserUniqueNameLang extends AbstractEntityBase {
@@ -20,7 +20,7 @@ public abstract class AbstractEntityUserUniqueNameLang extends AbstractEntityBas
 
 	@ManyToOne
 	@JoinColumn(name = "USER_ID")	
-	protected User user;
+	protected SystemUser user;
 
 	public String getName() {
 		return name;
@@ -40,11 +40,11 @@ public abstract class AbstractEntityUserUniqueNameLang extends AbstractEntityBas
 		return this;
 	}
 
-	public User getUser() {
+	public SystemUser getUser() {
 		return user;
 	}
 
-	public AbstractEntityUserUniqueNameLang setUser(User user) {
+	public AbstractEntityUserUniqueNameLang setUser(SystemUser user) {
 		this.user = user;
 		return this;
 	}

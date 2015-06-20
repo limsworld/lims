@@ -4,7 +4,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import wold.lims.ejb.base.model.entities.User;
+import wold.lims.ejb.base.model.entities.SystemUser;
 
 @Entity
 @DiscriminatorValue("EINGANGSBESTELLUNGSPOSITION")
@@ -18,7 +18,7 @@ public class Eingangsbestellposition extends Position {
 		return this;
 	}
 
-	public Eingangsbestellposition setUser(User user) {
+	public Eingangsbestellposition setUser(SystemUser user) {
 		this.user = user;
 		return this;
 	}

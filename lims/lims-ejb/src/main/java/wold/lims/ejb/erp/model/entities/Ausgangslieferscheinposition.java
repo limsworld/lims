@@ -6,7 +6,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import wold.lims.ejb.base.model.entities.User;
+import wold.lims.ejb.base.model.entities.SystemUser;
 
 @Entity
 @DiscriminatorValue("AUSGANGSLIEFERSCHEINPOSITION")
@@ -24,7 +24,7 @@ public class Ausgangslieferscheinposition extends Position {
 		return this;
 	}
 
-	public Ausgangslieferscheinposition setUser(User user) {
+	public Ausgangslieferscheinposition setUser(SystemUser user) {
 		this.user = user;
 		return this;
 	}

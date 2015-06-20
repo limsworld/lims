@@ -35,8 +35,21 @@ public class OnStartUp {
 	@Inject
 	private GeschaeftsbereichFassade geschaeftsbereichFassade;
 
+//	@Inject
+//	private LabMasterFassade labFassade;
+	
 	@PostConstruct
 	private void postConstruct() throws ParseException {
+
+//		AnalysisRequestState analysisRequestStateActive = new AnalysisRequestState()
+//			.setName(AnalysisRequestStateEnum.ACTIVE.name())
+//			.setText("sss");
+//		em.persist(analysisRequestStateActive);
+		
+		
+//		AnalysisRequestState analysisRequestState = 
+//				labFassade.getAnalysisRequestState(AnalysisRequestStateEnum.ACTIVE.name());
+//			System.out.print(analysisRequestState.getLabel(LangEnum.de.name()));
 
 		stammdaten();
 

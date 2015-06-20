@@ -21,7 +21,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.Type;
 
 import wold.lims.ejb.base.model.base.AbstractEntityUserUniqueNameLang;
-import wold.lims.ejb.base.model.entities.User;
+import wold.lims.ejb.base.model.entities.SystemUser;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -73,7 +73,7 @@ public class Artikel extends AbstractEntityUserUniqueNameLang {
 					nullable = false, updatable = false) })
 	protected List<Artikel> artikels = new ArrayList<Artikel>();
 
-	public Artikel setUser(User user) {
+	public Artikel setUser(SystemUser user) {
 		this.user = user;
 		return this;
 	}

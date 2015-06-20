@@ -13,40 +13,40 @@ import javax.persistence.UniqueConstraint;
 import wold.lims.ejb.base.model.base.AbstractEntityUniqueNameLang;
 
 @Entity
-@Table(name = "ROLLE", schema = "BASE",
+@Table(name = "SYSTEM_ROLLE", schema = "BASE",
 	uniqueConstraints = @UniqueConstraint(columnNames = "NAME"))
-public class Rolle extends AbstractEntityUniqueNameLang {
+public class SystemRolle extends AbstractEntityUniqueNameLang {
 
 	private static final long serialVersionUID = 5717618395956266025L;
 
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "rollen")
-	protected List<User> users = new ArrayList<User>();
+	protected List<SystemUser> users = new ArrayList<SystemUser>();
 
-	public Rolle setSystem(boolean system) {
+	public SystemRolle setSystem(boolean system) {
 		this.system = system;
 		return this;
 	}
 
-	public Rolle setName(String name) {
+	public SystemRolle setName(String name) {
 		this.name = name;
 		return this;
 	}
 
-	public Rolle setBezeichnung(String bezeichnung) {
+	public SystemRolle setBezeichnung(String bezeichnung) {
 		this.bezeichnung = bezeichnung;
 		return this;
 	}
 
-	public List<User> getUsers() {
+	public List<SystemUser> getUsers() {
 		return users;
 	}
 
-	public Rolle setUsers(List<User> users) {
+	public SystemRolle setUsers(List<SystemUser> users) {
 		this.users = users;
 		return this;
 	}
 
-	public Rolle addUser(User user) {
+	public SystemRolle addUser(SystemUser user) {
 		users.add(user);
 		return this;
 	}
